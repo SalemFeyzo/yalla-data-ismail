@@ -154,6 +154,6 @@ setInterval(getData, 1000);
 //3 Grape
 //4 Apple
 //5 Strawberry
-//6 avocado
+//6 Mango
 //7 watermelon
 //8 cherry
