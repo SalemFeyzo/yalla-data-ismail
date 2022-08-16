@@ -20,7 +20,7 @@ const roundSchema = new mongoose.Schema({
   },
   createdAt: {
     type: String,
-    default: date,
+    required: true,
   },
 });
 

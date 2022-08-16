@@ -29,12 +29,13 @@ router
   })
   .post(async (req, res) => {
     try {
-      const { roundNum, fruitName, fruitId /*rounds*/ } = req.body;
+      const { roundNum, fruitName, fruitId, createdAt } = req.body;
       Round.collection.dropIndexes();
       const newRound = new Round({
         roundNum,
         fruitName,
         fruitId,
+        createdAt,
       });
       newRound.save();
       res.status(200).json(newRound);

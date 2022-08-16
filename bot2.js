@@ -1,4 +1,5 @@
 const axios = require("axios");
+const moment = require("moment-timezone");
 require("dotenv").config();
 
 let baseUrl = "https://play.yalla.live/Webservers/Game";
@@ -49,12 +50,14 @@ const getData = async () => {
           : "No thing";
 
       if (result.data.data.betFruitId > 0) {
+        const now = moment.tz(Date.now(), "Europe/Istanbul");
         const { data } = await axios.post(
           "http://localhost:5000/rounds",
           {
             roundNum: Number(result.data.data.currBureauno),
             fruitName: fruit,
             fruitId: Number(result.data.data.betFruitId),
+            createdAt: String(now),
           },
           config
         );
