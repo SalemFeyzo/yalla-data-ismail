@@ -13,7 +13,7 @@ import axios from "axios";
 import { format, parseISO, startOfDay, endOfDay } from "date-fns";
 import { ar } from "date-fns/locale";
 import downloadExcel from "./utils/excelUitl";
-import getCounts from "./utils/countsUtil";
+import Counts from "./Counts";
 
 function App() {
   const today = new Date();
@@ -31,7 +31,6 @@ function App() {
         );
         if (data.msg) setError(data.msg);
         setData(data);
-        getCounts(data);
         setLoading(false);
       } catch (error) {
         setLoading(false);
@@ -82,8 +81,7 @@ function App() {
         </Container>
       ) : (
         <Container dir="rtl">
-          <h1>الاحصائيات</h1>
-
+          <Counts data={data} />
           <h1>الجولات: </h1>
           <Table striped bordered hover responsive dir="rtl" id="rounds-table">
             <thead>
@@ -100,7 +98,7 @@ function App() {
                   <td>{item.fruitName}</td>
                   <td>
                     {format(
-                      parseISO(item.createdAt),
+                      parseISO(new Date(item.createdAt).toISOString()),
                       "yyyy-MM-dd hh:mm:ss aaaaa",
                       { locale: ar }
                     )}

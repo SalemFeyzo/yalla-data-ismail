@@ -3,6 +3,8 @@ const moment = require("moment-timezone");
 
 const now = moment.tz(Date.now(), "Europe/Istanbul");
 
+const date = new Date(); //2017-04-25T06:23:36.510Z
+
 const roundSchema = new mongoose.Schema({
   roundNum: {
     type: Number,
@@ -17,9 +19,8 @@ const roundSchema = new mongoose.Schema({
     required: true,
   },
   createdAt: {
-    type: Date,
-    required: true,
-    default: now,
+    type: String,
+    default: date,
   },
 });
 

@@ -8,7 +8,7 @@ const downloadExcel = (entryData) => {
       الجولة: item.roundNum,
       الفاكهة: item.fruitName,
       "الوقت والتاريخ": format(
-        parseISO(item.createdAt),
+        parseISO(new Date(item.createdAt).toISOString()),
         "yyyy-MM-dd hh:mm:ss aaaaa",
         { locale: ar }
       ),
