@@ -2,11 +2,11 @@ module.exports = {
   apps: [
     {
       name: "app1",
-      script: "./bot.js",
+      script: "./index.js",
     },
     {
       name: "app2",
-      script: "./index.js",
+      script: "./bot2.js",
     },
   ],
 };

@@ -1,6 +1,6 @@
 const axios = require("axios");
 var xl = require("excel4node");
-process.env.TZ = "Europe/Istanbul";
+
 let baseUrl = "https://play.yalla.live/Webservers/Game";
 let userId = "67715553";
 let token = "1BF58B87463066D19920BADBF03D8DD2";
@@ -84,7 +84,6 @@ const getData = async () => {
           : "No thing";
 
       if (result.data.data.betFruitId > 0) {
-        console.log({ result: result.data.data.betFruitId, timer });
         arr.push({
           round: `${result.data.data.currBureauno}`,
           fruit,

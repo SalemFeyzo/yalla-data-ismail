@@ -1,10 +1,16 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
-require("dotenv").config();
+const dotenv = require("dotenv");
+const connectDB = require("./connectDB");
+const roundRoutes = require("./routes/roundRoutes");
 
+dotenv.config();
+connectDB();
 const app = express();
 app.use(express.json());
+
+app.use("/rounds", roundRoutes);
 
 app.get("/files", (req, res) => {
   let files = fs
