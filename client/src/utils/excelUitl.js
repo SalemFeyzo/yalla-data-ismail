@@ -36,8 +36,8 @@ const downloadExcel = (entryData) => {
       النتائج: `${entryData.filter((el) => el.fruitName === "فريز").length}`,
     },
     {
-      الفاكهة: "منجو",
-      النتائج: `${entryData.filter((el) => el.fruitName === "منجو").length}`,
+      الفاكهة: "منجا",
+      النتائج: `${entryData.filter((el) => el.fruitName === "منجا").length}`,
     },
     {
       الفاكهة: "بطيخ",
