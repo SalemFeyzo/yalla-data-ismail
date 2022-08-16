@@ -23,8 +23,8 @@ const Counts = ({ data }) => {
       result: `${data.filter((el) => el.fruitName === "فريز").length}`,
     },
     {
-      fruit: "منجو",
-      result: `${data.filter((el) => el.fruitName === "منجو").length}`,
+      fruit: "منجا",
+      result: `${data.filter((el) => el.fruitName === "منجا").length}`,
     },
     {
       fruit: "بطيخ",
