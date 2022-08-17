@@ -10,7 +10,7 @@ import {
   Spinner,
 } from "react-bootstrap";
 import axios from "axios";
-import { format, parseISO, startOfDay, endOfDay } from "date-fns";
+import { format, parseISO, startOfDay, endOfDay, addHours } from "date-fns";
 import { ar } from "date-fns/locale";
 import downloadExcel from "./utils/excelUitl";
 import Counts from "./Counts";
@@ -27,7 +27,10 @@ function App() {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `/rounds?from=${startOfDay(date)}&to=${endOfDay(date)}`
+          `/rounds?from=${addHours(startOfDay(date), 1)}&to=${addHours(
+            endOfDay(date),
+            1
+          )}`
         );
         if (data.msg) setError(data.msg);
         setData(data);
@@ -40,7 +43,6 @@ function App() {
 
     getData();
   }, [date]);
-
   return (
     <Container>
       <Container className="p-3">
