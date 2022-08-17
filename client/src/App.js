@@ -27,10 +27,10 @@ function App() {
       try {
         setLoading(true);
         const { data } = await axios.get(
-          `/rounds?from=${addHours(startOfDay(date), 1)}&to=${addHours(
-            endOfDay(date),
+          `/rounds?from=${addHours(
+            startOfDay(date),
             1
-          )}`
+          ).toISOString()}&to=${addHours(endOfDay(date), 1).toISOString()}`
         );
         if (data.msg) setError(data.msg);
         setData(data);
